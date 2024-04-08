@@ -3,6 +3,8 @@ import CardList from './CardList';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
 import './App.css';
+import Form from "./Form";
+
 
 
 
@@ -20,7 +22,12 @@ class  App extends Component  {
         .then(response => response.json())
         .then(users => this.setState({robots : users}));
     }
-
+    addRobot = (robot) => {
+        this.setState((prevState) => ({
+            robots: [...prevState.robots, robot]
+        }));
+        
+    }
     onsearchChange = (event) =>{
         this.setState({ searchfield : event.target.value })
  
@@ -38,8 +45,12 @@ class  App extends Component  {
 
             return(
                 <div className="tc">
+                    <div>
                     <h1 className="f1">Robofriends</h1>
+                    <Form robots = {robots} addRobot={this.addRobot}/ >
+                    </div>
                     
+
                     < SearchBox searchChange={this.onsearchChange}/>
                     <Scroll>
                     <CardList robots = {filteredRobots}/>
