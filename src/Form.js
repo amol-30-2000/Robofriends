@@ -3,7 +3,7 @@ import AddIcon from './icon.png'
 
 const Form = ({robots,  addRobot}) => {
     const [showDiv, setShowDiv] = useState(false);
-
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [id, setId] = useState(11);
@@ -23,7 +23,7 @@ const Form = ({robots,  addRobot}) => {
         // console.log("Email:", email);
        
         setId(id + 1)
-        console.log(robots)
+        
         const obj = { 
             id : id,
             name : name,
@@ -46,7 +46,6 @@ const Form = ({robots,  addRobot}) => {
                 alt="icon"
                 onClick={() => {
                     setShowDiv(!showDiv);
-                    console.log(0);
                 }}
             />
             {showDiv && (
